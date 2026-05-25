@@ -1,23 +1,517 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://example.com/byd-longterm-rental"
+      },
+      "headline": "BYD 장기렌트카 2026년 최신 종합 분석: 모델별 예상 견적 및 장단점 비교",
+      "image": [
+        "https://example.com/byd-rental-main.jpg"
+      ],
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25",
+      "author": {
+        "@type": "Person",
+        "name": "친환경 자동차 금융 분석가"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "친환경차 렌트 비교 연구소",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://example.com/logo.png"
+        }
+      },
+      "description": "BYD 장기렌트카의 2026년 기준 실시간 견적, 월 대여료 평균 금액 및 전기차 국고 보조금 혜택을 분석합니다. 아토 3, 돌핀, 씰 등 30개 이상의 모델 장단점 비교."
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #0f172a; 
+            --secondary-color: #0d9488; 
+            --accent-color: #f43f5e; 
+            --bg-light: #f8fafc;
+            --bg-soft: #f0fdfa;
+            --text-dark: #334155;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --white: #ffffff;
+        }
+        
+        body { 
+            font-family: 'Noto Sans KR', sans-serif; 
+            line-height: 1.8; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-dark); 
+            background-color: var(--white); 
+        }
+        
+        header { 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 80px 20px 60px; 
+            border-bottom: 5px solid var(--secondary-color); 
+        }
+        
+        h1 { 
+            font-size: 2.3em; 
+            margin-bottom: 20px; 
+            font-weight: 700; 
+            letter-spacing: -0.5px;
+        }
+        
+        .hero-text { 
+            font-size: 1.15em; 
+            font-weight: 300; 
+            color: #cbd5e1; 
+            max-width: 800px; 
+            margin: 0 auto;
+        }
+        
+        .cta-box { 
+            background-color: var(--bg-soft); 
+            padding: 35px; 
+            border-radius: 12px; 
+            margin: 40px 0; 
+            text-align: center; 
+            border: 1px solid #99f6e4;
+        }
+        
+        .cta-btn { 
+            display: inline-block; 
+            padding: 16px 35px; 
+            background-color: var(--secondary-color); 
+            color: var(--white); 
+            font-size: 1.1em; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            transition: background 0.3s ease; 
+            border: none; 
+            cursor: pointer;
+        }
+        
+        .cta-btn:hover { 
+            background-color: #0f766e; 
+        }
+        
+        section { 
+            padding: 50px 20px; 
+            max-width: 1000px; 
+            margin: auto; 
+        }
+        
+        .content-area { 
+            max-width: 900px; 
+            margin: auto; 
+        }
+        
+        h2 { 
+            font-size: 1.7em; 
+            color: var(--primary-color); 
+            border-bottom: 2px solid var(--border-color); 
+            padding-bottom: 12px; 
+            margin-top: 50px; 
+        }
+        
+        h3 { 
+            font-size: 1.3em; 
+            color: var(--secondary-color); 
+            margin-top: 35px; 
+        }
+        
+        p { 
+            margin-bottom: 24px; 
+            text-align: justify; 
+        }
+        
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 30px 0; 
+            font-size: 0.95em; 
+        }
+        
+        table th, table td { 
+            padding: 14px 16px; 
+            border: 1px solid var(--border-color); 
+        }
+        
+        table th { 
+            background-color: var(--primary-color); 
+            color: var(--white); 
+            font-weight: 600; 
+            text-align: center; 
+        }
+        
+        table tr:nth-child(even) { 
+            background-color: var(--bg-light); 
+        }
+        
+        .input-group { 
+            background-color: var(--bg-light); 
+            padding: 30px; 
+            border-radius: 12px; 
+            margin-top: 40px; 
+            border: 1px solid var(--border-color);
+        }
+        
+        .input-group label { 
+            display: block; 
+            margin-bottom: 10px; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+        }
+        
+        .input-group input[type="text"], 
+        .input-group input[type="number"], 
+        .input-group select { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            background-color: var(--white);
+        }
+        
+        .input-group textarea { 
+            width: 100%; 
+            padding: 12px; 
+            margin-bottom: 20px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 6px; 
+            box-sizing: border-box; 
+            height: 120px; 
+            background-color: var(--white);
+        }
+        
+        .calculator-result {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .calculator-result h4 {
+            margin-top: 0;
+            color: #166534;
+            font-size: 1.2em;
+        }
+
+        .external-links a { 
+            display: block; 
+            margin-bottom: 12px; 
+            color: var(--secondary-color); 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 12px; 
+            background-color: var(--bg-light); 
+            border-radius: 6px; 
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.3s; 
+        }
+        
+        .external-links a:hover { 
+            background-color: var(--bg-soft); 
+            padding-left: 18px;
+        }
+        
+        footer { 
+            background-color: var(--primary-color); 
+            color: #94a3b8; 
+            text-align: center; 
+            padding: 30px; 
+            font-size: 0.85em; 
+            margin-top: 60px; 
+            border-top: 5px solid var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>BYD 장기렌트카 가격 비교 및 2026년 모델별 예상 견적 심층 분석</h1>
+        <p class="hero-text">전기차 시장의 핵심 브랜드로 떠오른 BYD의 주요 모델별 월 대여료 분석과 초기 가입 비용, 장단점 및 혜택 비교 가이드입니다.</p>
+    </header>
+
+    <section>
+        <div class="content-area">
+            
+            <h2>1. BYD 장기렌트카 시장의 대두와 2026년 전망</h2>
+            <p>친환경 자동차 보급이 급속도로 가속화되면서 수입 전기차에 대한 진입 장벽도 낮아지고 있습니다. 특히 글로벌 전기차 강자로 자리 잡은 브랜드 BYD의 다양한 라인업이 국내 시장에 정식 도입되면서 실속형 소비를 지향하는 오너들 사이에서 관심이 집중되고 있습니다. 직접 차량을 구매하는 것보다 초기 비용 부담을 덜 수 있는 장기렌트 상품에 대한 선호도가 높아지고 있으며, 이는 세제 혜택과 유지 보수 측면에서의 이점을 동반합니다.</p>
+            
+            <p>2026년 현재 기준, 국내 친환경 정책 및 전기차 보조금 제도는 매년 그 기준이 세분화되고 있습니다. 일반 소비자가 보조금 혜택을 온전히 누리며 차량을 운용하기 위해서는 법인 및 개인 장기렌트 상품을 적극 활용하는 것이 합리적인 대안으로 꼽힙니다. 다양한 수입 장기렌트 전문 업체들이 신규 고객을 유치하기 위해 활발한 프로모션을 진행하고 있어 소비자들은 실시간으로 다양한 혜택 정보를 수집하고 가격 견적을 대조해 보아야 합니다.</p>
+
+            <h2>2. BYD 주요 30개 이상 라인업 모델별 특징</h2>
+            <p>BYD는 소형 해치백부터 대형 플래그십 세단, SUV, 그리고 픽업트럭까지 방대한 전기차 포트폴리오를 보유하고 있습니다. 장기렌트 진행 시 선택할 수 있는 다양한 라인업의 명칭과 각 차량의 성격을 설명합니다. 국내 도입 및 글로벌 시장에서 검토 가능한 모델들은 다음과 같습니다.</p>
+            
+            <p>소형 및 도심형 엔트리 라인업으로는 <strong>BYD Dolphin (돌핀)</strong>과 <strong>BYD Seagull (시걸)</strong>, 그리고 글로벌 마켓에서 돌핀 미니(Dolphin Mini)로 명명된 콤팩트 모델이 주축을 이룹니다. 이와 함께 실용성을 강조한 크로스오버 모델인 <strong>BYD e2 (이투)</strong>, 준중형 세단 타입의 <strong>BYD e3 (이쓰리)</strong>, 그리고 대중 교통 및 플릿 비즈니스에 널리 활용되는 <strong>BYD e6 (이식스)</strong> 모델이 있습니다. 엔트리 등급의 세단으로는 합리적인 금액 배치가 특징인 <strong>BYD Qin (친)</strong> 및 플러그인 하이브리드와 순수 전기 라인업을 아우르는 <strong>BYD Qin Plus (친 플러스)</strong>가 대표적입니다.</p>
+
+            <p>국내 수입차 시장의 핵심 볼륨 모델로 손꼽히는 준중형 SUV 라인업으로는 <strong>BYD Atto 3 (아토 3)</strong>가 있으며, 이는 중국 내수 시장 등에서 <strong>BYD Yuan Plus (위안 플러스)</strong>라는 차명으로도 널리 알려져 있습니다. 보다 콤팩트한 패밀리 크로스오버인 <strong>BYD Yuan (위안)</strong> 시리즈도 렌트 시장에서 지속적으로 거론되는 차종입니다. 중형급 이상의 SUV 제품군을 살펴보면, <strong>BYD Song (송)</strong>, <strong>BYD Song Plus (송 플러스)</strong>, 가성비를 한층 높인 <strong>BYD Song Pro (송 프로)</strong>가 핵심 허브 역할을 수행하고 있습니다. 또한 최신 플랫폼을 기반으로 제작된 스마트 크로스오버 SUV인 <strong>BYD Sealion 6 (시라이언 6)</strong>와 스타일리시한 쿠페형 디자인을 결합한 <strong>BYD Sealion 7 (시라이언 7)</strong> 모델 역시 높은 가치를 지닙니다.</p>
+
+            <p>스타일리시한 드라이빙 감각을 선호하는 이들을 위한 세단 및 쿠페 라인업의 선두에는 스포츠 세단인 <strong>BYD Seal (씰)</strong>이 있으며, 패밀리형 크로스오버로 재해석된 <strong>BYD Seal U (씰 U)</strong> 또한 안정적인 선택지로 꼽힙니다. 중형급 이상의 스포티 세단 라인으로는 <strong>BYD Destroyer 05 (디스트로이어 05)</strong>와 플러그인 하이브리드 중형 세단인 <strong>BYD Destroyer 07 (디스트로이어 07)</strong>가 존재합니다. 고급 대형 세단 세그먼트에는 브랜드의 정수를 담은 플래그십 세단인 <strong>BYD Han (한)</strong>과 고성능 전기 시스템을 극대화한 <strong>BYD Han EV (한 EV)</strong>가 활약하고 있습니다. 대형 SUV 영역에서는 넉넉한 공간감을 선사하는 <strong>BYD Tang (탕)</strong> 및 고성능 4륜 구동을 지원하는 <strong>BYD Tang EV (탕 EV)</strong>가 대표적인 차종으로 분류됩니다.</p>
+
+            <p>프리미엄 세그먼트와 특수 차종으로 시선을 돌리면 프리깃 07(Frigate 07)과 같은 대형 SUV부터 시작하여 고급 준대형 이상의 MPV인 <strong>BYD Denza D9 (덴자 D9)</strong>이 미니밴 수요층의 지지를 받습니다. 스포츠 지향적인 고급 크로스오버인 <strong>BYD Denza N7 (덴자 N7)</strong>과 패밀리 지향 대형 SUV인 <strong>BYD Denza N8 (덴자 N8)</strong> 역시 상위 라인업을 단단히 고수하고 있습니다. 이에 더해 초고급 럭셔리 오프로더인 <strong>BYD Yangwang U8 (양왕 U8)</strong>과 수퍼카의 영역을 개척하는 <strong>BYD Yangwang U9 (양왕 U9)</strong>은 첨단 제어 기술력을 자랑합니다. 마지막으로 친환경 아웃도어 및 화물 수송 능력을 겸비한 하이브리드 전기 픽업트럭인 <strong>BYD Shark (샤크)</strong>에 이르기까지 다채로운 라인업이 준비되어 있어 사용자의 목적에 알맞은 선정이 가능합니다.</p>
+
+            <hr>
+
+            <h2>3. BYD 장기렌트카 비용 구조와 2026 예상 견적 분석</h2>
+            <p>장기렌트 계약 시 소비자가 실질적으로 지출해야 하는 월 납입 금액은 차량의 출고 가격뿐만 아니라 잔존가치, 적용 할인율, 그리고 금융사별 마진 요율에 따라 다르게 산정됩니다. 친환경 보조금의 변동 폭이 크기 때문에, 개인이 직접 신청할 때보다 장기렌트 전문 업체의 명의로 대량 확보된 물량을 선택할 때 대여료가 한층 저렴해지는 경향이 있습니다.</p>
+            
+            <p>수요가 가장 집중될 것으로 예상되는 대표 차종 3종의 평균 견적 테이블을 통해 개략적인 비용 분담 비중을 유추해 볼 수 있습니다. 아래 수치는 2026년 계약 조건(48개월, 연 주행거리 2만km, 선납금 30% 설정 기준)에 근거한 가상의 예시 분석 자료입니다.</p>
+
+            <table>
+                <caption>BYD 주요 대표 모델 예상 월 대여료 및 비용 분담 비율</caption>
+                <thead>
+                    <tr>
+                        <th>분석 대상 모델</th>
+                        <th>아토 3 (Yuan Plus)</th>
+                        <th>씰 (Seal EV)</th>
+                        <th>돌핀 (Dolphin)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>기초 차량 출고 가격 (세전 기준 예상)</td>
+                        <td style="text-align: center;">약 3,900만원 ~ 4,200만원</td>
+                        <td style="text-align: center;">약 4,800만원 ~ 5,300만원</td>
+                        <td style="text-align: center;">약 2,900만원 ~ 3,200만원</td>
+                    </tr>
+                    <tr>
+                        <td>월 예상 대여료 (평균 수준 적용)</td>
+                        <td style="text-align: center;">월 30만원대 후반 ~ 40만원대 중반</td>
+                        <td style="text-align: center;">월 40만원대 후반 ~ 50만원대 후반</td>
+                        <td style="text-align: center;">월 20만원대 후반 ~ 30만원대 초반</td>
+                    </tr>
+                    <tr>
+                        <td>인수 시점 잔존가치 설정 비율</td>
+                        <td style="text-align: center;">40% ~ 45%</td>
+                        <td style="text-align: center;">42% ~ 47%</td>
+                        <td style="text-align: center;">38% ~ 43%</td>
+                    </tr>
+                    <tr>
+                        <td>세금 및 자체 보험료 포함 여부</td>
+                        <td style="text-align: center;">대여료 내 전액 포함</td>
+                        <td style="text-align: center;">대여료 내 전액 포함</td>
+                        <td style="text-align: center;">대여료 내 전액 포함</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>전기차 특성상 연식에 따른 리튬 인산철(LFP) 혹은 삼원계(NCM) 배터리 성능 저하 우려가 늘 존재합니다. 그러나 장기렌트 상품은 계약 만료 시점의 차량 잔존가치를 렌트사에서 전적으로 책임지기 때문에 감가상각으로 인한 리스크를 소비자가 직접 짊어질 필요가 없다는 핵심적인 장점을 가집니다. 따라서 향후 중고차 매각 가격 방어에 대한 불안감을 효과적으로 덜어낼 수 있습니다.</p>
+
+            <hr>
+
+            <h2>4. BYD 장기렌트카 이용의 장단점 및 구매 대안과의 차이점</h2>
+            <p>다양한 구매 및 임대 조건 중 장기렌트를 결정할 때는 뚜렷한 장단점 분석이 요구됩니다. 일반 할부 구매나 리스 계약 방식과 비교했을 때 나타나는 명확한 차이점을 정밀하게 살펴보겠습니다.</p>
+
+            <h3>4.1. 주요 장점 분석</h3>
+            <p>장기렌트의 첫 번째 강점은 초기 비용 지출의 최소화입니다. 취득세, 등록세 및 공채 매입 비용이 월 대여료에 골고루 분산되어 있어, 목돈이 한 번에 나가는 상황을 방지할 수 있습니다. 두 번째로는 보험료 효율성을 들 수 있습니다. 개개인의 운전 이력이나 사고 경력에 따른 할증이 적용되지 않고 렌터카사 단체 요율의 보험 혜택이 적용되기 때문에, 과거 사고 이력이 있어 보험료 부담이 크거나 나이가 어려 첫 차 보험료가 비싸게 책정되는 소비자에게 유리합니다. 또한, 자산이나 부채로 잡히지 않아 신용 등급 유지나 대출 한도 관리에 민감한 개인사업자 및 법인에게 매력적입니다.</p>
+
+            <h3>4.2. 주요 단점 분석</h3>
+            <p>가장 먼저 지적되는 한계는 번호판의 식별성입니다. 하, 허, 호 등의 렌터카 전용 번호판이 강제 적용되기 때문에 이에 대한 개인적인 호불호가 갈릴 수 있습니다. 또한 장기렌트 이용 기간 동안 무사고 운전을 유지하더라도 개인의 운전 경력으로 인정되지 않아, 향후 개인 자동차 보험에 다시 가입할 때 무사고 할인 혜택을 계승받을 수 없습니다. 계약 중도 해지 시 청구되는 중도해지 위약금 수수료율 또한 상당히 엄격하게 책정되는 편이므로, 가급적 약정 기간을 무리 없이 끝까지 유지할 수 있는 상환 능력을 기초로 설계해야 합니다.</p>
+
+            <hr>
+
+            <h2>5. 정보 검색 및 견적 확인 방법: 싼곳과 전문 업체 찾기</h2>
+            <p>인터넷의 보급과 모바일 채널의 확대로 인해 다양한 플랫폼에서 실시간 렌트 요금을 비교해 볼 수 있습니다. 과거에는 직접 대리점을 돌아다니며 서류를 수집해야 했으나, 최근에는 온라인을 활용한 최적화 비교 시스템이 매우 체계적으로 갖춰져 있습니다.</p>
+
+            <p>소비자들은 실질적인 이용 후기를 참고하기 위해 인터넷 검색엔진인 네이버 혹은 구글 등을 활용하며, 대형 자동차 커뮤니티나 디시 등의 게시판에서 회원들의 내돈내산 경험담과 계약 주의사항을 유심히 살펴봅니다. 미디어를 활용해 실차의 내외관 성능을 체크하고자 유튜브 채널을 시청하고, 트위터, 인스타그램, 페이스북 등 다양한 소셜 네트워크 미디어에서 매달 달라지는 실시간 프로모션 공식을 빠르게 체크하기도 합니다. 최근에는 인공지능 기반 정보 분석 도구인 제미나이(Gemini)나 챗지피티(ChatGPT)를 활용하여 각 조건별 금리 우대 정책이나 차량 상세 스펙의 장단점을 빠르게 찾아보고 결정을 내리는 똑똑한 소비 양상도 늘고 있습니다.</p>
+
+            <p>업체 선정 시에는 신규 가입 혜택의 내역을 세심하게 들여다봐야 합니다. 렌트사마다 계약 체결 시 지급하는 전면 유리 및 후 측면 썬팅 업그레이드, 고급 블랙박스 무상 장착과 같은 사은품 구성이 상이합니다. 일부 다이렉트 채널에서는 유통 마진을 대폭 낮춰 캐시백 형태의 현금지원이나 상품권 증정 이벤트를 선보이기도 하므로, 계약을 급하게 마무리 짓기보다 복수의 전문 업체를 지정하여 상호 교차 대조해 보는 작업이 필수적입니다.</p>
+
+            <hr>
+
+            <h2>6. 사용자 맞춤형 BYD 장기렌트카 대여료 실시간 모의 계산기</h2>
+            <p>나에게 적합한 BYD 장기렌트 상품 조건은 어느 수준일까요? 아래 계산기를 사용하면 가입 연령, 계약 기간, 초기 비용 납부 비중에 따라 조정되는 예상 월 대여료 범위를 화면 이동 없이 간편하게 확인하실 수 있습니다. 세부 항목들을 입력하며 다양한 견적 시뮬레이션을 진행해 보세요.</p>
+
+            <div class="input-group">
+                <h3>차량 선택 및 기본 계약 조건 입력</h3>
+                
+                <label for="calc-model">선호하시는 BYD 전기차 모델을 지정해 주세요.</label>
+                <select id="calc-model" onchange="runSimulation()">
+                    <option value="dolphin">BYD Dolphin (돌핀 - 소형 해치백)</option>
+                    <option value="atto3" selected>BYD Atto 3 (아토 3 - 준중형 SUV)</option>
+                    <option value="seal">BYD Seal (씰 - 중형 스포츠 세단)</option>
+                    <option value="han">BYD Han (한 - 준대형 세단)</option>
+                    <option value="tang">BYD Tang (탕 - 대형 SUV)</option>
+                    <option value="denza">BYD Denza D9 (덴자 D9 - 프리미엄 MPV)</option>
+                </select>
+
+                <label for="calc-period">원하시는 계약 약정 기간을 지정해 주세요.</label>
+                <select id="calc-period" onchange="runSimulation()">
+                    <option value="36">36개월 (단기 회전율 고려)</option>
+                    <option value="48" selected>48개월 (가장 균형 잡힌 조건)</option>
+                    <option value="60">60개월 (월 납입금 최소화)</option>
+                </select>
+
+                <label for="calc-prepay">초기 보증 조건 및 선납 비중을 선택해 주세요.</label>
+                <select id="calc-prepay" onchange="runSimulation()">
+                    <option value="0">무보증 (초기 비용 0원)</option>
+                    <option value="10">보증금 10% (만기 시 전액 환급)</option>
+                    <option value="20">보증금 20% (만기 시 전액 환급)</option>
+                    <option value="30">선납금 30% (월 렌트료 대폭 인하)</option>
+                    <option value="40">선납금 40% (월 렌트료 극대화 인하)</option>
+                </select>
+
+                <label for="calc-mileage">약정 주행거리를 입력해 주세요 (연간 단위 기준, 1만km ~ 5만km 범위 권장).</label>
+                <input type="number" id="calc-mileage" value="20000" min="10000" max="50000" step="5000" oninput="runSimulation()">
+
+                <label for="calc-age">주 운전자의 만 나이를 기재해 주세요 (전용 보험 요율 산정 기초).</label>
+                <input type="number" id="calc-age" value="35" min="21" max="75" oninput="runSimulation()">
+
+                <label for="calc-score">네비게이션 연계 안전 운전 점수 (해당하는 경우 입력하여 정밀 산출 연동)</label>
+                <input type="number" id="calc-score" value="85" min="0" max="100" oninput="runSimulation()">
+
+                <label for="calc-memo">추가 문의사항 또는 맞춤형 인도 조건 기재 (자율 기재)</label>
+                <textarea id="calc-memo" placeholder="예: 무심사 진행 여부, 만기 시 인수 조건 설정, 특수 탁송 지역 여부 등을 자유롭게 작성해 주시면 추후 분석에 유용하게 연동됩니다."></textarea>
+
+                <button type="button" class="cta-btn" onclick="runSimulation()">조건 반영 실시간 예측 대여료 산출하기</button>
+
+                <div id="result-box" class="calculator-result">
+                    <h4>선택하신 조건의 예상 모의 견적 리포트</h4>
+                    <p>기본 선택 모델: <span id="res-model" style="font-weight: 700; color: var(--secondary-color);"></span></p>
+                    <p>설정 계약 기간: <span id="res-period" style="font-weight: 700;"></span></p>
+                    <p>초기 자금 비율: <span id="res-prepay" style="font-weight: 700;"></span></p>
+                    <p>연간 약정 주행거리: <span id="res-mileage" style="font-weight: 700;"></span></p>
+                    <p>운전자 지정 제한: <span id="res-age" style="font-weight: 700;"></span></p>
+                    <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 15px 0;">
+                    <p style="font-size: 1.15em; color: var(--accent-color); font-weight: 700;">최종 예상 월 대여료 범위: <span id="res-price"></span></p>
+                    <p style="font-size: 0.85em; color: var(--text-muted); margin-bottom: 0;">* 위 결과 수치는 입력 데이터 기반의 예측 알고리즘에 따른 시뮬레이션 결과물이며, 개개인의 신용도와 국고 보조금 실적 변화에 따라 본 계약 체결 단계에서 다소 조정될 수 있습니다.</p>
+                </div>
+            </div>
+
+            <script>
+                function runSimulation() {
+                    const model = document.getElementById('calc-model').value;
+                    const period = parseInt(document.getElementById('calc-period').value);
+                    const prepay = parseInt(document.getElementById('calc-prepay').value);
+                    const mileage = parseInt(document.getElementById('calc-mileage').value) || 20000;
+                    const age = parseInt(document.getElementById('calc-age').value) || 30;
+                    const score = parseInt(document.getElementById('calc-score').value) || 80;
+
+                    let basePrice = 350000; // 원
+                    let modelName = "";
+
+                    if (model === "dolphin") {
+                        basePrice = 310000;
+                        modelName = "BYD Dolphin (돌핀)";
+                    } else if (model === "atto3") {
+                        basePrice = 410000;
+                        modelName = "BYD Atto 3 (아토 3)";
+                    } else if (model === "seal") {
+                        basePrice = 520000;
+                        modelName = "BYD Seal (씰)";
+                    } else if (model === "han") {
+                        basePrice = 690000;
+                        modelName = "BYD Han (한)";
+                    } else if (model === "tang") {
+                        basePrice = 740000;
+                        modelName = "BYD Tang (탕)";
+                    } else if (model === "denza") {
+                        basePrice = 880000;
+                        modelName = "BYD Denza D9 (덴자 D9)";
+                    }
+
+                    // 기간 할인율 계산 (장기 가입 할인 우대)
+                    let periodMultiplier = 1.0;
+                    if (period === 48) {
+                        periodMultiplier = 0.92;
+                    } else if (period === 60) {
+                        periodMultiplier = 0.85;
+                    }
+
+                    // 초기 자금 투입에 따른 월 대여료 조정
+                    let prepayDiscount = 0;
+                    if (prepay === 10) {
+                        prepayDiscount = 20000;
+                    } else if (prepay === 20) {
+                        prepayDiscount = 45000;
+                    } else if (prepay === 30) {
+                        prepayDiscount = 110000; // 선납 개념 차감폭 증가
+                    } else if (prepay === 40) {
+                        prepayDiscount = 160000;
+                    }
+
+                    // 주행 거리 연동 증감
+                    let mileageSurcharge = 0;
+                    if (mileage > 20000) {
+                        mileageSurcharge = Math.floor((mileage - 20000) / 10000) * 15000;
+                    } else if (mileage < 20000) {
+                        mileageSurcharge = -15000;
+                    }
+
+                    // 운전자 연령에 따른 기본 보장 요율 차등
+                    let ageSurcharge = 0;
+                    if (age < 26) {
+                        ageSurcharge = 45000; // 젊은 연령층 할증
+                    } else if (age < 30) {
+                        ageSurcharge = 15000;
+                    }
+
+                    // 안전운전 점수 80점 이상 시 소폭 자체 우대 적용 설정
+                    let scoreDiscount = 0;
+                    if (score >= 90) {
+                        scoreDiscount = 10000;
+                    } else if (score >= 80) {
+                        scoreDiscount = 5000;
+                    }
+
+                    let calculatedPrice = Math.floor((basePrice * periodMultiplier) - prepayDiscount + mileageSurcharge + ageSurcharge - scoreDiscount);
+                    if (calculatedPrice < 150000) calculatedPrice = 150000; // 최저 한계 설정
+
+                    const minRange = Math.floor(calculatedPrice / 10000) * 10000;
+                    const maxRange = minRange + 30000;
+
+                    document.getElementById('res-model').innerText = modelName;
+                    document.getElementById('res-period').innerText = period + "개월 연계 납부";
+                    
+                    let prepayText = "무보증";
+                    if (prepay > 0) {
+                        prepayText = prepay + "% 수준 " + (prepay >= 30 ? "선납 적용" : "보증 보관");
+                    }
+                    document.getElementById('res-prepay').innerText = prepayText;
+                    document.getElementById('res-mileage').innerText = mileage.toLocaleString() + " km 설정";
+                    document.getElementById('res-age').innerText = "만 " + age + "세 기준 (운전자 연한 적용)";
+                    document.getElementById('res-price').innerText = minRange.toLocaleString() + "원 ~ " + maxRange.toLocaleString() + "원";
+
+                    document.getElementById('result-box').style.display = "block";
+                }
+            </script>
+
+            <hr>
+
+            <h2>7. 신뢰성 및 심화 탐색을 위한 추천 외부 참조 출처</h2>
+            <p>다양한 제도의 변경 사항이나 각 유관 부서의 공식 시행령, 그리고 중립적인 소비자 가이드라인에 기반한 원론적 지식에 접근하시려면 아래의 신뢰도 높은 국가 행정 정보망 및 공익 단체의 포털 사이트를 경유해 살펴보실 수 있습니다.</p>
+            
+            <div class="external-links">
+                <a href="https://namu.wiki/w/BYD" target="_blank" rel="noopener noreferrer">나무위키 - BYD 브랜드 역사 및 모델 세부 스펙 분석 🔗</a>
+                <a href="https://www.me.go.kr" target="_blank" rel="noopener noreferrer">환경부 - 전기차 국고 보조금 지원 체계 및 실시간 차량별 승인 고시 현황 🔗</a>
+                <a href="https://www.molit.go.kr" target="_blank" rel="noopener noreferrer">국토교통부 - 자동차 대여사업 제도 및 자동차 등록에 관한 주요 규정 🔗</a>
+                <a href="https://www.kca.go.kr" target="_blank" rel="noopener noreferrer">한국소비자원 - 장기렌트 계약 시 소비자 피해 구제 규정 및 공정거래 약관 🔗</a>
+                <a href="https://www.energy.or.kr" target="_blank" rel="noopener noreferrer">한국에너지공단 - 친환경 자동차 에너지 소비효율 및 주행가능거리 공인 등급 검색 🔗</a>
+                <a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer">국가법령정보센터 - 여객자동차 운수사업법 및 전기차 보급 활성화 법적 근거 🔗</a>
+            </div>
+
+            <hr>
+
+            <div class="cta-box">
+                <h3>BYD 장기렌트카 맞춤형 실시간 혜택 추가 접수</h3>
+                <p>차량 잔가 세팅, 보조금 분배 구조 및 매월 변화하는 즉시 출고 물량 정보를 한눈에 비교해 보고 안전하게 차량을 확보할 수 있도록 무료 상담을 받아보실 수 있습니다.</p>
+                <a href="#calc-model" class="cta-btn">맞춤형 실시간 견적 대조하러 가기</a>
+            </div>
+
+        </div>
+    </section>
+
+  
